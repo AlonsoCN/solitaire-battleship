@@ -7,9 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
   EMPTY = 0;
-  PART_OF_SHIP = 1;
-  SUNKEN_PART_OF_SHIP = 2;
-  MISSED_SHOT = 3;
+  SUNKEN_PART_OF_SHIP = 1;
+  MISSED_SHOT = 2;
   board: number[][] = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

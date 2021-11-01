@@ -1,0 +1,13 @@
+<div class="flex justify-center mt-16">
+  <div class="w-4/5 flex justify-center">
+    <table class="border-4 border-black">
+      <tr class="border-4 border-black" *ngFor="let row of board">
+        <td class="border-4 border-black p-3" *ngFor="let column of row">
+          <span class="text-2xl" *ngIf="column === EMPTY">🌊</span>
+          <span class="text-2xl" *ngIf="column === SUNKEN_PART_OF_SHIP"> 🔥 </span>
+          <span class="text-2xl" *ngIf="column === MISSED_SHOT">⭕</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

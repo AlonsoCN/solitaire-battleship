@@ -1,0 +1,13 @@
+<div class="p-5 bg-gray-200 border-black border-2">
+  <p
+    class="text-center text-xl"
+    [ngClass]="{ 'text-green-500': gameSession.hasWon, 'text-red-500': !gameSession.hasWon }"
+  >
+    {{ gameSession.hasWon ? "Ganaste" : "Perdiste" }}
+  </p>
+  <div class="flex justify-around">
+    <p>Turnos tomados: {{ gameSession.usedTurns }}</p>
+    <p>Dificultad: {{ gameSession.settings.currentDifficulty }}</p>
+    <p>Turnos máximos: {{ gameSession.settings.maxTurns }}</p>
+  </div>
+</div>

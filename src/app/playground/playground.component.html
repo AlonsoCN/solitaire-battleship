@@ -1,2 +1,33 @@
-<app-game-state></app-game-state>
-<app-board></app-board>
+<div class="flex justify-center mt-8">
+  <div class="w-4/5 flex justify-center">
+    <app-game-status
+      [currentTurn]="board.currentTurn"
+      [maxTurns]="settings.maxTurns"
+      [difficultyMode]="settings.currentDifficulty"
+    ></app-game-status>
+  </div>
+</div>
+
+<div class="flex justify-center mt-8">
+  <div class="w-4/5 flex justify-center">
+    <app-board [currentBoardState]="board.currentBoardState" (tileClicked)="tileClicked($event)"></app-board>
+  </div>
+</div>
+
+<div *ngIf="toasterInfo.isShown" class="mt-8">
+  <app-toaster-notification
+    [title]="toasterInfo.title"
+    [message]="toasterInfo.message"
+    [type]="toasterInfo.type"
+    (dismissClicked)="toasterInfo.isShown = false"
+  ></app-toaster-notification>
+</div>
+
+<div *ngIf="hasWon || hasLose" class="flex justify-center mt-8">
+  <button
+    class="p-2 pl-5 pr-5 bg-green-500 text-gray-100 text-lg rounded-lg focus:border-4 border-green-300"
+    (click)="resetGameSession()"
+  >
+    Reiniciar juego
+  </button>
+</div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HistoryComponent } from './history.component';
+import { RecordCardComponent } from './record-card/record-card.component';
 
 const routes: Routes = [
   {
@@ -14,5 +15,5 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class HistoryRoutingModule {
-  static components = [HistoryComponent];
+  static components = [HistoryComponent, RecordCardComponent];
 }

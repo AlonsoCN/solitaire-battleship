@@ -1,1 +1,12 @@
-<p>history works!</p>
+<div class="flex flex-col justify-center mt-5">
+  <ng-container *ngIf="gamesPlayed.length; else elseTemplate">
+    <ng-container *ngFor="let games of gamesPlayed">
+      <div class="m-5">
+        <app-record-card [gameSession]="games"></app-record-card>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <h2 class="text-center text-2xl">Aún no hay registros</h2>
+  </ng-template>
+</div>

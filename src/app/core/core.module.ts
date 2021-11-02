@@ -9,6 +9,5 @@ import { StoreStateService } from './store/store-state.service';
   declarations: [HeaderComponent, NavbarComponent],
   imports: [CommonModule, RouterModule],
   exports: [HeaderComponent],
-  providers: [StoreStateService],
 })
 export class CoreModule {}

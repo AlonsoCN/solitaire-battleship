@@ -1,1 +1,43 @@
-<p>settings works!</p>
+<p class="text-center mt-5">Dificultad:</p>
+<div class="flex justify-center">
+  <fieldset class="mt-5 mb-5">
+    <div class="flex items-center mb-4">
+      <input
+        id="easy-difficulty"
+        class="h-4 w-4 border-gray-300 focus:ring-2 focus:ring-blue-300"
+        type="radio"
+        name="difficulty"
+        value="easy"
+        [(ngModel)]="currentDifficulty"
+        (ngModelChange)="handleDifficultyChange($event)"
+      />
+      <label for="easy-difficulty" class="text-sm font-medium text-gray-900 ml-2 block">Fácil</label>
+    </div>
+
+    <div class="flex items-center mb-4">
+      <input
+        id="regular-difficulty"
+        class="h-4 w-4 border-gray-300 focus:ring-2 focus:ring-blue-300"
+        type="radio"
+        name="difficulty"
+        value="regular"
+        [(ngModel)]="currentDifficulty"
+        (ngModelChange)="handleDifficultyChange($event)"
+      />
+      <label for="regular-difficulty" class="text-sm font-medium text-gray-900 ml-2 block">Regular</label>
+    </div>
+
+    <div class="flex items-center mb-4">
+      <input
+        id="hard-difficulty"
+        class="h-4 w-4 border-gray-300 focus:ring-2 focus:ring-blue-300"
+        type="radio"
+        name="difficulty"
+        value="hard"
+        [(ngModel)]="currentDifficulty"
+        (ngModelChange)="handleDifficultyChange($event)"
+      />
+      <label for="hard-difficulty" class="text-sm font-medium text-gray-900 ml-2 block">Difícil</label>
+    </div>
+  </fieldset>
+</div>

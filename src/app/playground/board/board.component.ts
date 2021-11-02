@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { XYCoords } from '@shared/models';
 
 @Component({
   selector: 'app-board',
@@ -6,23 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
-  EMPTY = 0;
-  SUNKEN_PART_OF_SHIP = 1;
-  MISSED_SHOT = 2;
-  board: number[][] = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  ];
+  @Input() currentBoardState!: number[][];
+  @Output() tileClicked = new EventEmitter<XYCoords>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  fire(event: any) {
+    const id: string = event.target.id; // Id with format: `{X Coordinate}x{Y Coordinate}`
+    const [x, y] = id.split('x');
+    this.tileClicked.emit({ x: +x, y: +y });
+  }
 }
